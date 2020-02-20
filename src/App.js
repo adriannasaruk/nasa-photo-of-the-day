@@ -3,7 +3,17 @@ import "./App.css";
 import axios from "axios"
 import Title from "./components/Title.js"
 import Header from "./components/header.js"
+import styled from "styled-components";
+import Image from "./components/Image.js"
+import Explanation from "./components/explanation.js"
+import Footer from "./components/footer.js"
 
+const Container = styled.div`
+max-width: 80%;
+height: 100%;
+margin: 0 auto;
+background: lightblue;
+`;
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,11 +31,13 @@ function App() {
   }, []);
 
   return (
-<div>
+<Container>
  <Title title={data.title}/>
  <Header date ={data.date}/>
- <img src={data.url} alt="nasa picture"/>
- </div>
+ <Image img={data.url}/>
+ <Explanation explain={data.explanation}/>
+ <Footer/>
+ </Container>
   
   )}
 
